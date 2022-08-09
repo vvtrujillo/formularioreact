@@ -3,10 +3,10 @@ import {Table} from 'reactstrap'
 import {AiFillEdit} from 'react-icons/ai'
 import {MdDelete} from 'react-icons/md'
 
-const Listado = ({data, eliminarFn}) => {
+const Listado = ({data, eliminarFn, aumentarFn, edadMod}) => {
     return(
         <React.Fragment>
-            <Table>
+            {/*<Table>
                 <thead>
                     <tr>
                         <th>Editar</th>
@@ -26,7 +26,16 @@ const Listado = ({data, eliminarFn}) => {
                         </tr>)
                     }
                 </tbody>
-            </Table>
+                </Table>*/}
+            {data && data.map((dato, i) => 
+            <div key={i}>
+                <h1>{dato.apellido}, {dato.nombre}</h1>
+                <p>Email: {dato.email}</p>
+                <p>Edad: {dato.edad}</p>
+                <p>Fono: {dato.fono}</p>
+                <button className="btn btn-danger" onClick={e => eliminarFn(dato.nombre, i)}>Remover</button>              
+                <hr></hr>
+            </div>)}
         </React.Fragment>
     )
 }

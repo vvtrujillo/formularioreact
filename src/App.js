@@ -16,8 +16,15 @@ function App() {
 
   const[data, setData] = useState([])
 
+  const [edad, setEdad] = useState(10);
+
   const agregar = (obj) => {
     setData([...data,obj])
+  }
+
+  const aumentar = (e) => {
+    setEdad(edad+1);
+    
   }
 
   const eliminar = (nombre, indice) => {
@@ -41,7 +48,7 @@ function App() {
       <h1>Formulario</h1>
       <Formulario agregarFn={agregar}></Formulario> 
       <hr></hr>
-      <Listado data={data} eliminarFn={eliminar}></Listado>
+      <Listado data={data} eliminarFn={eliminar} aumentarFn={aumentar} edadMod={setEdad.edad}></Listado>
     </Container>
   );
 }

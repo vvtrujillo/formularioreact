@@ -3,6 +3,8 @@ import {Form, Label, Input, Col, FormGroup, Row, Button} from 'reactstrap'
 
 const estadoInicial = {
     nombre:'',
+    apellido:'',
+    edad: '',
     email:'',
     fono:''
 }
@@ -30,11 +32,19 @@ const Formulario = ({agregarFn}) => {
                 <Row>
                     <Col md={6}>
                         <FormGroup>
-                            <Label for="nombre">Nombre</Label>
+                            <Label for="nombre">Nombre:</Label>
                             <Input id="nombre" name="nombre" placeholder="Nombre..."type="text" value={formulario.nombre} onChange={actualizaFormulario} required minLength={2}/>
                         </FormGroup>
                         <FormGroup>
-                            <Label for="exampleEmail">Email</Label>
+                            <Label for="nombre">Apellido:</Label>
+                            <Input id="apellido" name="apellido" placeholder="Apellido..."type="text" value={formulario.apellido} onChange={actualizaFormulario} required minLength={2}/>
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for="nombre">Edad:</Label>
+                            <Input id="edad" name="edad" placeholder="Edad..."type="number" value={formulario.edad} onChange={actualizaFormulario} required/>
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for="exampleEmail">Email:</Label>
                             <Input id="exampleEmail" name="email" placeholder="Email..."type="email" value={formulario.email} onChange={actualizaFormulario} required/>
                         </FormGroup>
                         <FormGroup>
