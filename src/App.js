@@ -1,10 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
 import { Button, Container } from 'reactstrap';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Formulario from './components/formulario';
 import Listado from './components/listado';
 import Swal from 'sweetalert2';
+import axios from 'axios';
 
 //Creacion de formulario para conectar distintos objetos y simular un CRUD.
 //primero instalamos reacstrap para utilizar bootstrap en los objetos.
@@ -21,7 +22,10 @@ function App() {
   const [edad, setEdad] = useState(10);
 
   const agregar = (obj) => {
-    setData([...data,obj])
+    axios.post('http://localhost:8000/api/v1/material',obj)
+      .then(resp => {
+        setData([...data, resp.data.data]);
+      });
   }
 
   const aumentar = (e) => {
@@ -45,9 +49,17 @@ function App() {
     
   }
 
+  useEffect(()=> { //Acá nos conectamos con los datos del backend a través de la API
+    axios.get('http://localhost:8000/api/v1/material')
+      .then(resp => {
+        setData(resp.data.data);//llenamos la variable data con la respuesta de la API array.
+        console.log(data);
+      })
+  }, []);
+
   return (
     <Container center>
-      <h1>Formulario</h1>
+      <h1>Materiales</h1>
       <hr></hr>
       <Formulario agregarFn={agregar}></Formulario> 
       <hr></hr>

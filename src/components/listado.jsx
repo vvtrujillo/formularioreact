@@ -12,8 +12,8 @@ const Listado = ({data, eliminarFn, aumentarFn, edadMod}) => {
                         <th>Editar</th>
                         <th>Eliminar</th>
                         <th>Nombre</th>
-                        <th>Email</th>
-                        <th>Fono</th>
+                        <th>Código</th>
+                        <th>Cantidad</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -21,8 +21,8 @@ const Listado = ({data, eliminarFn, aumentarFn, edadMod}) => {
                             <td><AiFillEdit /></td>
                             <td><MdDelete color='red' onClick={e => eliminarFn(dato.nombre, i)}/></td>
                             <td>{dato.nombre}</td>
-                            <td>{dato.email}</td>
-                            <td>{dato.fono}</td>
+                            <td>{dato.codigo}</td>
+                            <td>{dato.cantidad}</td>
                         </tr>)
                     }
                 </tbody>

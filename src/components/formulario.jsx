@@ -3,10 +3,8 @@ import {Form, Label, Input, Col, FormGroup, Row, Button} from 'reactstrap'
 
 const estadoInicial = {
     nombre:'',
-    apellido:'',
-    edad: '',
-    email:'',
-    fono:''
+    codigo:'',
+    cantidad:''
 }
 
 const Formulario = ({agregarFn}) => {
@@ -36,20 +34,12 @@ const Formulario = ({agregarFn}) => {
                             <Input id="nombre" name="nombre" placeholder="Nombre..."type="text" value={formulario.nombre} onChange={actualizaFormulario} required minLength={2}/>
                         </FormGroup>
                         <FormGroup>
-                            <Label for="nombre">Apellido:</Label>
-                            <Input id="apellido" name="apellido" placeholder="Apellido..."type="text" value={formulario.apellido} onChange={actualizaFormulario} required minLength={2}/>
+                            <Label for="codigo">Código</Label>
+                            <Input id="codigo" name="codigo" placeholder="Código..."type="text" value={formulario.codigo} onChange={actualizaFormulario} required/>
                         </FormGroup>
                         <FormGroup>
-                            <Label for="nombre">Edad:</Label>
-                            <Input id="edad" name="edad" placeholder="Edad..."type="number" value={formulario.edad} onChange={actualizaFormulario} required/>
-                        </FormGroup>
-                        <FormGroup>
-                            <Label for="exampleEmail">Email:</Label>
-                            <Input id="exampleEmail" name="email" placeholder="Email..."type="email" value={formulario.email} onChange={actualizaFormulario} required/>
-                        </FormGroup>
-                        <FormGroup>
-                            <Label for="fono">Fono</Label>
-                            <Input id="fono" name="fono" placeholder="Fono..."type="number" value={formulario.fono} onChange={actualizaFormulario} max={999999999999}/>
+                            <Label for="cantidad">Cantidad</Label>
+                            <Input id="cantidad" name="cantidad" placeholder="Cantidad..."type="number" value={formulario.cantidad} onChange={actualizaFormulario} max={999999999999}/>
                         </FormGroup>
                     </Col>                    
                 </Row>                
