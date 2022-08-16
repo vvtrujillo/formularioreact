@@ -17,7 +17,8 @@ const Listado = ({data, eliminarFn, aumentarFn, edadMod}) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {data && data.map((dato, i) => <tr key={i}>
+                    {data && data.map((dato, i) => 
+                        <tr key={i}>
                             <td><AiFillEdit /></td>
                             <td><MdDelete color='red' onClick={e => eliminarFn(dato.nombre, i)}/></td>
                             <td>{dato.nombre}</td>
