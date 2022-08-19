@@ -52,7 +52,7 @@ function App() {
   useEffect(()=> { //Acá nos conectamos con los datos del backend a través de la API
     axios.get('http://localhost:8000/api/v1/material')
       .then(resp => {
-        console.log(resp.data);
+        console.log(resp.datosJug);
         setData(resp.data.data);//llenamos la variable data con la respuesta de la API array.
         console.log(data);
       })
